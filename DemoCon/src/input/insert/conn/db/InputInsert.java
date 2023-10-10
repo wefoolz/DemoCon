@@ -15,18 +15,26 @@ public class InputInsert {
 			Connection con = DriverManager.getConnection(url, username,password);
 				
 			String q = "insert into table1(tName, tCity) values(?,?)";
+//			String q = "insert into table1(tId, tName, tCity) values(?,?,?)";
 			
 			PreparedStatement st = con.prepareStatement(q);
 			
 			
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			
+//			System.out.println("Enter Id: ");
+//			int id = Integer.parseInt(br.readLine());
 			System.out.println("Enter name: ");
 			String name = br.readLine();
 			System.out.println("Enter City: ");
 			String city = br.readLine();
 			
+//			st.setInt(1, id);
+//			st.setString(2, name);
+//			st.setString(3,city);
+			
 			st.setString(1, name);
-			st.setString(2, city);
+			st.setString(2,city);
 				
 			st.executeUpdate();
 			System.out.println("Data Inserted");
